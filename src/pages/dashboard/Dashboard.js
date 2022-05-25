@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Dashboard() {
-  const { user, logout } = useContext(AuthContext);
 
   return (
     <div className="container">
-      <h1> Hello {user.username}</h1>
-      <button onClick={logout}>Logout</button>
+      <Navbar/>
     </div>
   );
 }
