@@ -16,13 +16,13 @@ function Navbar() {
             <div className="navigation">
                 <ul>
                     <li>
-                       <Link class="nav-item" to='/dashboard'>Dashboard </Link>
+                       <Link className="nav-item" to='/dashboard'>Dashboard </Link>
                     </li>
                     <li>
-                        <Link class="nav-item" to='/search'>Search </Link>
+                        <Link className="nav-item" to='/search'>Search </Link>
                     </li>
                     <li>
-                        <Link class="nav-item" to='/favorites'>Favorites </Link>
+                        <Link className="nav-item" to='/favorites'>Favorites </Link>
                     </li>
                 </ul>
             </div>
