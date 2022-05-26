@@ -18,4 +18,12 @@ const getNextPageUsers = async (url) => {
     });
 }
 
-export { getAllUsers, getNextPageUsers };
+const searchUsers = async (keyword) => {
+    return await axios.get(`${API_URL}/search/users?q=${keyword}&followers:>=1000&per_page=20`, {
+        headers: {
+            "accept": "application/vnd.github.v3+json",
+        },
+    });
+}
+
+export { getAllUsers, getNextPageUsers, searchUsers };

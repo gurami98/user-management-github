@@ -2,7 +2,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import {useEffect, useState} from "react";
 import {getAllUsers, getNextPageUsers} from "../../http/users";
 import {getLinkHeaderUrl} from "../../helpers/headers";
-
+import UsersList from "../../components/UsersList/UsersList";
+import './Dashboard.css'
 
 function Dashboard() {
     const [users, setUsers] = useState([]);
@@ -43,16 +44,7 @@ function Dashboard() {
         <div className="container">
             <Navbar/>
             {isLoading && <h1 align='center'>Loading...</h1>}
-            <div className="users">
-                {
-                    users.map(user => {
-                        return (
-                            <h1> {user.login} </h1>
-                        )
-                    })
-                }
-            </div>
-
+            <UsersList users={users}/>
             <button onClick={loadMoreUsers}>Load More</button>
         </div>
     );
