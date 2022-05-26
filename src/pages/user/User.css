@@ -115,3 +115,51 @@
     color: black;
     text-decoration: none;
 }
+
+
+.modal {
+    background-color: rgba(176, 198, 221, 0.4);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal > div {
+    background-color: white;
+    border: 1px solid gray;
+    width: 400px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.modal:empty {
+    display: none;
+}
+
+.modal-buttons{
+    display: flex;
+    gap: 15px;
+    padding-top: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-buttons button{
+    width: 100px;
+    height: 30px;
+    background-color: lightblue;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.modal-buttons button:hover{
+    opacity: 0.8;
+}

@@ -5,12 +5,14 @@ import {useParams} from "react-router-dom";
 import '../../components/Navbar/Navbar.css'
 import {getSingleUser, getUserOrganisations, getUserRepositories} from "../../http/users";
 import FavoriteImg from '../../assets/favorite.png'
+import Modal from "../../components/Modal";
 const User = () => {
     const { username } = useParams()
     const [user, setUser] = useState({});
     const [organisations, setOrganisations] = useState([]);
     const [repositories, setRepositories] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         getUser()
@@ -34,16 +36,34 @@ const User = () => {
         setIsLoading(false)
     }
 
+    const confirmModal = () => {
+        setShowModal(false);
+    }
+
+    const rejectModal = () => {
+        setShowModal(false);
+    }
+
     return (
         <div className="container container-user-page">
             <Navbar />
             { isLoading && <h1>Loading...</h1>}
+            {
+                showModal &&
+                <Modal>
+                    <h1>Are you sure you want to add this user to favorites</h1>
+                    <div className="modal-buttons">
+                        <button onClick={confirmModal}>Confirm</button>
+                        <button onClick={rejectModal}>Cancel</button>
+                    </div>
+                </Modal>
+            }
             <div className="user-info-container">
                 <div className="basic-info-container">
                     <img src={user.avatar_url} alt="icon" className="user-img"/>
                     <div className='wrapper favorite-btn-container'>
                         <img src={FavoriteImg} alt="favorite" className='favorite-img'/>
-                        <button className="favorite-btn">  add/remove favorites</button>
+                        <button className="favorite-btn" onClick={() => setShowModal(true)}>  add/remove favorites</button>
                     </div>
                     <div className="wrapper user-general-info">
                         {user.bio?.length > 0 && <p>Bio: {user.bio}</p>}
