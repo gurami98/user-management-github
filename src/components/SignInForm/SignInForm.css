@@ -1,14 +1,19 @@
 .form-container{
     background-color: #EBEBEB;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-direction: column;
 }
 
 .form{
     background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
@@ -40,4 +45,8 @@
 
 .submit-button:hover{
     opacity: 0.8;
+}
+
+.form-errors{
+    color: red;
 }

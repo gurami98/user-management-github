@@ -12,6 +12,8 @@ function SignInForm() {
         password: ''
     })
 
+    const [validationErrors, setValidationErrors] = useState([])
+
     const handleFormInputChange = (e) => {
         const {name, value} = e.target
         setUser({
@@ -31,11 +33,25 @@ function SignInForm() {
             // navigate('/dashboard');
         } catch (e) {
             console.log(e);
-            alert('error while trying to log in')
+            if (Array.isArray(e.response.data.message)){
+                setValidationErrors(e.response.data.message);
+            }else {
+                setValidationErrors([e.response.data.message]);
+            }
+            // alert('error while trying to log in')
         }
     }
     return (
         <div className="form-container">
+            <div className="form-errors">
+                {
+                    validationErrors.map((error, index) => {
+                        return (
+                            <p key={index}>{error}</p>
+                        )
+                    })
+                }
+            </div>
             <form className="form" onSubmit={handleFormSubmit}>
                 <label htmlFor="username">Username: </label>
                 <input className="form-control" type="text" id='username' name='username' value={user.username}
