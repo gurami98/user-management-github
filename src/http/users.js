@@ -39,4 +39,22 @@ const getSingleUser = async (username) => {
     });
 }
 
-export { getAllUsers, getNextPageUsers, searchUsers, getSingleUser };
+const getUserOrganisations = async (url) => {
+    return await axios.get(url, {
+        headers: {
+            Authorization: `Bearer ${GITHUB_TOKEN}`,
+            "accept": "application/vnd.github.v3+json",
+        },
+    });
+}
+
+const getUserRepositories = async (url) => {
+    return await axios.get(url, {
+        headers: {
+            Authorization: `Bearer ${GITHUB_TOKEN}`,
+            "accept": "application/vnd.github.v3+json",
+        },
+    });
+}
+
+export { getAllUsers, getNextPageUsers, searchUsers, getSingleUser, getUserOrganisations, getUserRepositories };

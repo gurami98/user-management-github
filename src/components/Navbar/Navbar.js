@@ -5,7 +5,7 @@ import GitHubLogo from '../../assets/github-icon.webp'
 import {Link, useParams} from "react-router-dom";
 function Navbar() {
     const { user, logout } = useContext(AuthContext);
-    const location = window.location.pathname.replace('/', '')
+    const location = window.location.pathname.split('/')[1]
 
     return (
         <div className='navbar'>

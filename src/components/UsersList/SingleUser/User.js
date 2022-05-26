@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react'
 import './User.css'
 import {getSingleUser} from "../../../http/users";
+import {useNavigate} from "react-router-dom";
 
-const User = ({user}) => {
+const SingleUser = ({user}) => {
     const [userInfo, setUserInfo] = useState({
         following: 0,
         followers: 0,
         repositories: 0
     });
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         getUser();
@@ -26,8 +29,12 @@ const User = ({user}) => {
         }
     }
 
+    const openSingleUser = () => {
+        navigate(`/user/${user.login}`)
+    }
+
     return (
-        <div className='user' key={user.id}>
+        <div className='user' key={user.id} onClick={openSingleUser}>
             <img src={user.avatar_url} alt="avatar"/>
             <p>username: {user.login}</p>
             <p>Followers: {userInfo?.followers}</p>
@@ -37,4 +44,4 @@ const User = ({user}) => {
     )
 }
 
-export default User;
+export default SingleUser;

@@ -12,7 +12,7 @@ const ROUTES = {
   DASHBOARD: "dashboard",
   SEARCH: 'search',
   FAVORITES: 'favorites',
-  USER: 'user/:id'
+  USER: 'user/:username'
 };
 
 const ROUTES_CONFIG = [

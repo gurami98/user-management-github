@@ -1,6 +1,6 @@
 import React from 'react'
 import './UsersList.css'
-import User from "./User/User";
+import SingleUser from "./SingleUser/User";
 
 const UsersList = ({users}) => {
     return (
@@ -8,7 +8,7 @@ const UsersList = ({users}) => {
             {
                 users.map(user => {
                     return (
-                        <User key={user.id} user={user}/>
+                        <SingleUser key={user.id} user={user}/>
                     )
                 })
             }

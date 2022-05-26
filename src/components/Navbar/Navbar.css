@@ -53,12 +53,13 @@
     gap: 5px;
 }
 
-.logout-btn{
+.user-container .logout-btn{
     background-color: rgba(30, 30, 103, 0.58);
     border: transparent;
     color: white;
     height: 25px;
     cursor: pointer;
+    width: initial;
 }
 
 .logout-btn:hover{
