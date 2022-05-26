@@ -7,24 +7,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.user{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: lightblue;
-    width: 200px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.user:hover{
-    opacity: 0.8;
-}
-
-.user img{
-    width: 150px;
-}

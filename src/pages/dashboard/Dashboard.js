@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar/Navbar";
 import {useEffect, useState} from "react";
 import {getAllUsers, getNextPageUsers} from "../../http/users";
-import {getLinkHeaderUrl} from "../../helpers/headers";
+import {getLinkHeaderUrlForSearch} from "../../helpers/headers";
 import UsersList from "../../components/UsersList/UsersList";
 import './Dashboard.css'
 
@@ -17,8 +17,8 @@ function Dashboard() {
     const fetchUsers = async () => {
         try{
             const response = await getAllUsers();
-            setUsers(response.data);
-            setNextLink(getLinkHeaderUrl(response.headers['link']))
+            setUsers(response.data.items);
+            setNextLink(getLinkHeaderUrlForSearch(response.headers['link']))
         } catch(e){
             console.log(e);
             alert('error occurred while fetching users');
@@ -30,9 +30,9 @@ function Dashboard() {
         try {
             const response = await getNextPageUsers(nextLink);
             setUsers((prevState) => {
-                return [...prevState, ...response.data];
+                return [...prevState, ...response.data.items];
             });
-            setNextLink(getLinkHeaderUrl(response.headers['link']))
+            setNextLink(getLinkHeaderUrlForSearch(response.headers['link']))
         } catch(e) {
             console.log(e);
             alert('error occurred while trying to fetch more users')
