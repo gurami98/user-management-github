@@ -3,9 +3,17 @@ import { AuthContext } from "../../context/AuthContext";
 import './Navbar.css'
 import GitHubLogo from '../../assets/github-icon.webp'
 import {Link} from "react-router-dom";
+import {FavoritesContext} from "../../context/FavoritesContext";
 function Navbar() {
     const { user, logout } = useContext(AuthContext);
     const location = window.location.pathname.split('/')[1]
+
+    const {clearFavorites} = useContext(FavoritesContext)
+
+    const logOut = () => {
+        clearFavorites()
+        logout()
+    }
 
     return (
         <div className='navbar'>
@@ -28,7 +36,7 @@ function Navbar() {
             </div>
             <div className='user-container'>
                 <p className='user-info'> Hello, {user.username}</p>
-                <button className='logout-btn' onClick={logout}>Log Out</button>
+                <button className='logout-btn' onClick={logOut}>Log Out</button>
             </div>
         </div>
     );
