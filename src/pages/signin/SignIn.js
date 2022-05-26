@@ -5,7 +5,6 @@ import {useEffect, useState} from "react";
 function SignIn() {
     const {state} = useLocation();
     const [toggle, setToggle] = useState(state?.success);
-    console.log(state)
 
     useEffect(() => {
         if(toggle === true){

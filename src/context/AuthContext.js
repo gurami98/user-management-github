@@ -35,7 +35,6 @@ function AuthContextProvider({ children }) {
 
   useEffect(() => {
     try {
-      console.log("starting init");
       const token = localStorage.getItem("accessToken");
       const { valid, payload } = parse(token);
       if (token && valid) {
@@ -48,7 +47,6 @@ function AuthContextProvider({ children }) {
     } catch (error) {
       handleFailInit();
     }
-    console.log("finish init");
   }, []);
 
   if (!isInitialized) {

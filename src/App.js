@@ -4,7 +4,6 @@ import Routes from "./Routes";
 
 function App() {
   const state = useContext(AuthContext);
-  console.log(state);
 
   return (
       <Routes />

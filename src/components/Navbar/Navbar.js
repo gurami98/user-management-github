@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import './Navbar.css'
 import GitHubLogo from '../../assets/github-icon.webp'
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 function Navbar() {
     const { user, logout } = useContext(AuthContext);
     const location = window.location.pathname.split('/')[1]

@@ -1,11 +1,9 @@
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function SignInForm() {
     const {login} = useContext(AuthContext);
-
-    const navigate = useNavigate()
 
     const [user, setUser] = useState({
         username: '',
@@ -30,7 +28,6 @@ function SignInForm() {
                 username: '',
                 password: ''
             })
-            // navigate('/dashboard');
         } catch (e) {
             console.log(e);
             if (Array.isArray(e.response.data.message)){
@@ -38,7 +35,6 @@ function SignInForm() {
             }else {
                 setValidationErrors([e.response.data.message]);
             }
-            // alert('error while trying to log in')
         }
     }
     return (

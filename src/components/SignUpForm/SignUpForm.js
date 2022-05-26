@@ -1,6 +1,5 @@
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import ROUTES from "../../config/routes";
 import {createNewUser} from "../../http/auth";
 import '../SignInForm/SignInForm.css'
 
@@ -53,7 +52,6 @@ function SignUpForm() {
             }else {
                 setValidationErrors([e.response.data.message]);
             }
-            // alert('error while registering')
         }
     }
 
