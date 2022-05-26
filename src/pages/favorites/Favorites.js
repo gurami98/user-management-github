@@ -8,6 +8,7 @@ const Favorites = () => {
     return (
         <div className="container">
             <Navbar/>
+            <h1>Total Favorite Users: {favorites.length}</h1>
             <UsersList users={favorites} hasRemoveBtn={true}/>
         </div>
     )
